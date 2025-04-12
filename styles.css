@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .slider, .popular, .filters, .catalog {
+    margin: 20px;
+  }
+  
+  .game-card {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.05);
+  }
+  
+  canvas {
+    border: 2px solid #333;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px;
+  }
+  
+  form input, form button {
+    margin: 5px 0;
+    padding: 8px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
