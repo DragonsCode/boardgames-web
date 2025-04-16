@@ -57,16 +57,20 @@ if (canvas) {
     if (board[index] === "") {
       board[index] = currentPlayer;
       drawMove(cellX, cellY, currentPlayer);
+
       if (checkWin()) {
         alert(currentPlayer + " победил!");
         resetBoard();
-      } else {
-        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        return;
       }
-    }
-    if (board.every((cell) => cell !== "")) {
-      alert("Ничья!");
-      resetBoard();
+
+      if (board.every((cell) => cell !== "")) {
+        alert("Ничья!");
+        resetBoard();
+        return;
+      }
+
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   });
 
