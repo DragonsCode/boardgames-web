@@ -64,6 +64,10 @@ if (canvas) {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
       }
     }
+    if (board.every((cell) => cell !== "")) {
+      alert("Ничья!");
+      resetBoard();
+    }
   });
 
   function drawMove(x, y, player) {
