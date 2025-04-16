@@ -61,16 +61,12 @@ if (canvas) {
       if (checkWin()) {
         alert(currentPlayer + " победил!");
         resetBoard();
-        return;
-      }
-
-      if (board.every((cell) => cell !== "")) {
+      } else if (board.every((cell) => cell !== "")) {
         alert("Ничья!");
         resetBoard();
-        return;
+      } else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
       }
-
-      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   });
 
