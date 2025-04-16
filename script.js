@@ -90,6 +90,7 @@ if (canvas) {
 
   function resetBoard() {
     board = ["", "", "", "", "", "", "", "", ""];
+    currentPlayer = "X";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.moveTo(100, 0); ctx.lineTo(100, 300);
