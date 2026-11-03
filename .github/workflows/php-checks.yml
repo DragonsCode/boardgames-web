@@ -1,0 +1,11 @@
+name: PHP offline configuration checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker run --rm --network none -v "$PWD:/app:ro" -w /app php:8.3-cli php tests/database_test.php
+      - run: docker run --rm --network none -v "$PWD:/app:ro" -w /app php:8.3-cli sh -c 'for file in *.php tests/*.php; do php -l "$file" || exit 1; done'

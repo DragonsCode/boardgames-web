@@ -1,13 +1,13 @@
 <?php
-$host = 'localhost';
-$dbname = 'boardgames';
-$user = 'root'; // Замени на своего пользователя
-$pass = 'Root007!'; // Замени на свой пароль
-
+require_once __DIR__ . '/database_config.php';
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $config = database_config();
+    $pdo = new PDO($config['dsn'], $config['user'], $config['password']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Ошибка подключения: " . $e->getMessage());
+    unset($config);
+} catch (Throwable $error) {
+    // Never expose PDO connection strings, credentials or internal exception messages.
+    error_log('Database connection unavailable: ' . get_class($error));
+    http_response_code(503);
+    exit('Database service unavailable.');
 }
-?>
